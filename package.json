@@ -1,0 +1,43 @@
+{
+  "name": "dm-mixer",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --fix '**/*.js' && stylelint --fix '**/*.css' && prettier '**/*.{css,js,html}' --write",
+    "build:js": "node ./tasks/build-js.js",
+    "build:css": "postcss src/main.css -m -o dist/css/main.css",
+    "build": "npm run build:css && npm run build:js",
+    "watch": "node ./tasks/watch.js",
+    "dev": "npm run build; npm run watch",
+    "storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006 --no-version-updates",
+    "build-storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook build"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.9.0",
+    "@csstools/postcss-bundler": "^2.0.1",
+    "@eslint/js": "^9.10.0",
+    "@storybook/addon-essentials": "^8.3.0",
+    "@storybook/addon-interactions": "^8.3.0",
+    "@storybook/addon-links": "^8.3.0",
+    "@storybook/blocks": "^8.3.0",
+    "@storybook/html": "^8.3.0",
+    "@storybook/html-vite": "^8.3.0",
+    "@storybook/test": "^8.3.0",
+    "autoprefixer": "^10.4.20",
+    "chokidar": "^3.6.0",
+    "cssnano": "^7.0.6",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.10.0",
+    "globals": "^15.9.0",
+    "postcss": "^8.4.45",
+    "postcss-cli": "^11.0.0",
+    "prettier": "^3.3.3",
+    "storybook": "^8.3.0",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}
