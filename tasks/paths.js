@@ -6,6 +6,12 @@ export default {
   get devScss() {
     return this.dev + 'scss/'
   },
+  get devCss() {
+    return this.dev + 'css/'
+  },
+  get devTokens() {
+    return this.dev + 'tokens/'
+  },
   dist: './dist/',
   get distJS() {
     return this.dist + 'js/'

@@ -1,0 +1,318 @@
+{
+  "mono": {
+    "mono-00": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "mono-10": {
+      "$type": "color",
+      "$value": "#1b1b1b"
+    },
+    "mono-20": {
+      "$type": "color",
+      "$value": "#303030"
+    },
+    "mono-30": {
+      "$type": "color",
+      "$value": "#474747"
+    },
+    "mono-40": {
+      "$type": "color",
+      "$value": "#5e5e5e"
+    },
+    "mono-50": {
+      "$type": "color",
+      "$value": "#777777"
+    },
+    "mono-60": {
+      "$type": "color",
+      "$value": "#919191"
+    },
+    "mono-70": {
+      "$type": "color",
+      "$value": "#ababab"
+    },
+    "mono-80": {
+      "$type": "color",
+      "$value": "#c6c6c6"
+    },
+    "mono-90": {
+      "$type": "color",
+      "$value": "#e2e2e2"
+    },
+    "mono-100": {
+      "$type": "color",
+      "$value": "#ffffff"
+    }
+  },
+  "glow-red": {
+    "glow-red-90": {
+      "$type": "color",
+      "$value": "#9b6b6b"
+    },
+    "glow-red-70": {
+      "$type": "color",
+      "$value": "#b75656"
+    },
+    "glow-red-60": {
+      "$type": "color",
+      "$value": "#d24040"
+    },
+    "glow-red-50": {
+      "$type": "color",
+      "$value": "#ed2b2b"
+    },
+    "glow-red-40": {
+      "$type": "color",
+      "$value": "#f26060"
+    },
+    "glow-red-20": {
+      "$type": "color",
+      "$value": "#f69595"
+    },
+    "glow-red-10": {
+      "$type": "color",
+      "$value": "#fbcaca"
+    }
+  },
+  "matt-red": {
+    "matt-red-90": {
+      "$type": "color",
+      "$value": "#977a7a"
+    },
+    "matt-red-70": {
+      "$type": "color",
+      "$value": "#ae7373"
+    },
+    "matt-red-60": {
+      "$type": "color",
+      "$value": "#c56d6d"
+    },
+    "matt-red-50": {
+      "$type": "color",
+      "$value": "#dc6666"
+    },
+    "matt-red-40": {
+      "$type": "color",
+      "$value": "#e58c8c"
+    },
+    "matt-red-20": {
+      "$type": "color",
+      "$value": "#eeb3b3"
+    },
+    "matt-red-10": {
+      "$type": "color",
+      "$value": "#f6d9d9"
+    }
+  },
+  "glow-green": {
+    "glow-green-90": {
+      "$type": "color",
+      "$value": "#6da060"
+    },
+    "glow-green-70": {
+      "$type": "color",
+      "$value": "#5ac040"
+    },
+    "glow-green-60": {
+      "$type": "color",
+      "$value": "#46df20"
+    },
+    "glow-green-50": {
+      "$type": "color",
+      "$value": "#33ff00"
+    },
+    "glow-green-40": {
+      "$type": "color",
+      "$value": "#66ff40"
+    },
+    "glow-green-20": {
+      "$type": "color",
+      "$value": "#99ff80"
+    },
+    "glow-green-10": {
+      "$type": "color",
+      "$value": "#ccffbf"
+    }
+  },
+  "matt-green": {
+    "matt-green-90": {
+      "$type": "color",
+      "$value": "#84998e"
+    },
+    "matt-green-70": {
+      "$type": "color",
+      "$value": "#89b39c"
+    },
+    "matt-green-60": {
+      "$type": "color",
+      "$value": "#8dccaa"
+    },
+    "matt-green-50": {
+      "$type": "color",
+      "$value": "#91e5b8"
+    },
+    "matt-green-40": {
+      "$type": "color",
+      "$value": "#adecca"
+    },
+    "matt-green-20": {
+      "$type": "color",
+      "$value": "#c8f2dc"
+    },
+    "matt-green-10": {
+      "$type": "color",
+      "$value": "#e4f9ed"
+    }
+  },
+  "glow-yellow": {
+    "glow-yellow-90": {
+      "$type": "color",
+      "$value": "#9f9d73"
+    },
+    "glow-yellow-70": {
+      "$type": "color",
+      "$value": "#bdba66"
+    },
+    "glow-yellow-60": {
+      "$type": "color",
+      "$value": "#dcd659"
+    },
+    "glow-yellow-50": {
+      "$type": "color",
+      "$value": "#faf34c"
+    },
+    "glow-yellow-40": {
+      "$type": "color",
+      "$value": "#fbf679"
+    },
+    "glow-yellow-20": {
+      "$type": "color",
+      "$value": "#fdf9a6"
+    },
+    "glow-yellow-10": {
+      "$type": "color",
+      "$value": "#fefcd2"
+    }
+  },
+  "matt-yellow": {
+    "matt-yellow-90": {
+      "$type": "color",
+      "$value": "#9c997b"
+    },
+    "matt-yellow-70": {
+      "$type": "color",
+      "$value": "#b9b276"
+    },
+    "matt-yellow-60": {
+      "$type": "color",
+      "$value": "#d5cb71"
+    },
+    "matt-yellow-50": {
+      "$type": "color",
+      "$value": "#f1e46c"
+    },
+    "matt-yellow-40": {
+      "$type": "color",
+      "$value": "#f5eb91"
+    },
+    "matt-yellow-20": {
+      "$type": "color",
+      "$value": "#f8f2b6"
+    },
+    "matt-yellow-10": {
+      "$type": "color",
+      "$value": "#fcf8da"
+    }
+  },
+  "glow-blue": {
+    "glow-blue-90": {
+      "$type": "color",
+      "$value": "#6c7a9d"
+    },
+    "glow-blue-70": {
+      "$type": "color",
+      "$value": "#5773bb"
+    },
+    "glow-blue-60": {
+      "$type": "color",
+      "$value": "#436dd8"
+    },
+    "glow-blue-50": {
+      "$type": "color",
+      "$value": "#2e66f5"
+    },
+    "glow-blue-40": {
+      "$type": "color",
+      "$value": "#628cf8"
+    },
+    "glow-blue-20": {
+      "$type": "color",
+      "$value": "#97b3fa"
+    },
+    "glow-blue-10": {
+      "$type": "color",
+      "$value": "#cbd9fd"
+    }
+  },
+  "matt-blue": {
+    "matt-blue-90": {
+      "$type": "color",
+      "$value": "#7b8397"
+    },
+    "matt-blue-70": {
+      "$type": "color",
+      "$value": "#7585af"
+    },
+    "matt-blue-60": {
+      "$type": "color",
+      "$value": "#7088c6"
+    },
+    "matt-blue-50": {
+      "$type": "color",
+      "$value": "#6a8add"
+    },
+    "matt-blue-40": {
+      "$type": "color",
+      "$value": "#8fa7e6"
+    },
+    "matt-blue-20": {
+      "$type": "color",
+      "$value": "#b5c5ee"
+    },
+    "matt-blue-10": {
+      "$type": "color",
+      "$value": "#dae2f7"
+    }
+  },
+  "cyan": {
+    "cyan-90": {
+      "$type": "color",
+      "$value": "#719da0"
+    },
+    "cyan-70": {
+      "$type": "color",
+      "$value": "#62bac0"
+    },
+    "cyan-60": {
+      "$type": "color",
+      "$value": "#53d7df"
+    },
+    "cyan-50": {
+      "$type": "color",
+      "$value": "#44f4ff"
+    },
+    "cyan-40": {
+      "$type": "color",
+      "$value": "#73f7ff"
+    },
+    "cyan-20": {
+      "$type": "color",
+      "$value": "#a2faff"
+    },
+    "cyan-10": {
+      "$type": "color",
+      "$value": "#d0fcff"
+    }
+  }
+}

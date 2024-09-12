@@ -54,6 +54,25 @@ watcherScss.on('add', reloadCss)
 watcherScss.on('change', reloadCss)
 watcherScss.on('error', handlerError)
 
+// Watch Tokens
+const watcherTokens = chokidar.watch(
+  [`${srcPath}tokens/**/*.json`],
+  watchOptions,
+)
+const reloadTokens = () => {
+  try {
+    execSync('npm run build:tokens -s', { stdio: 'inherit' })
+    console.log('--> reload Tokens')
+    // reloadJs()
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+watcherTokens.on('add', reloadTokens)
+watcherTokens.on('change', reloadTokens)
+watcherTokens.on('error', handlerError)
+
 // // Watch Images
 // const watcherImages = chokidar.watch(`${srcPath}images/**/*.*`, watchOptions)
 // const reloadImages = () => {
