@@ -1,0 +1,22 @@
+.tooltip {
+  --tooltip-background-color: var(--c-white);
+  --tooltip-border-color: var(--c-black);
+  --tooltip-border-width: 3px;
+
+  display: none;
+}
+
+.tooltip:not([hidden]) {
+  width: 70px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--tooltip-border-width) solid var(--tooltip-border-color);
+  background-color: var(--tooltip-background-color);
+  border-radius: 5px;
+  box-shadow: var(--tooltip-box-shadow, 0 0 4px 4px rgb(0 0 0 / 5%));
+  z-index: 200;
+  font-family: var(--font-monospace);
+  font-size: var(--type-size-30);
+}
