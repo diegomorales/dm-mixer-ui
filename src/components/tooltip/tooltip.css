@@ -1,12 +1,10 @@
 .tooltip {
-  --tooltip-background-color: var(--c-white);
-  --tooltip-border-color: var(--c-black);
+  --tooltip-background-color: var(--mono-100);
+  --tooltip-border-color: var(--cyan-50);
   --tooltip-border-width: 3px;
-
-  display: none;
 }
 
-.tooltip:not([hidden]) {
+.tooltip:popover-open {
   width: 70px;
   height: 24px;
   display: flex;
@@ -14,9 +12,8 @@
   justify-content: center;
   border: var(--tooltip-border-width) solid var(--tooltip-border-color);
   background-color: var(--tooltip-background-color);
-  border-radius: 5px;
+  border-radius: 4px;
   box-shadow: var(--tooltip-box-shadow, 0 0 4px 4px rgb(0 0 0 / 5%));
-  z-index: 200;
   font-family: var(--font-monospace);
   font-size: var(--type-size-30);
 }

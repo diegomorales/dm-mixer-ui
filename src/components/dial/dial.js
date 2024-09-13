@@ -88,14 +88,6 @@ export default class Dial extends Base {
     this._input = this.appendChild(ctrl)
   }
 
-  showTooltip() {
-    this._tooltip.hidden = false
-  }
-
-  hideTooltip() {
-    this._tooltip.hidden = true
-  }
-
   setHandleRotation(deg) {
     this._handle.style.transform = deg2Matrix(deg)
   }
@@ -152,7 +144,7 @@ export default class Dial extends Base {
     if (this._tooltipTimeout) {
       clearTimeout(this._tooltipTimeout)
     } else {
-      this.hideTooltip()
+      this._tooltip.hidePopover()
     }
 
     document.removeEventListener('pointermove', this.onPointermove)
@@ -170,9 +162,9 @@ export default class Dial extends Base {
     })
 
     this._tooltipTimeout = setTimeout(() => {
-      this.showTooltip()
       this.setTooltipValue()
       this._tooltipTimeout = 0
+      this._tooltip.showPopover()
     }, config.tooltipDelay)
 
     document.addEventListener('pointermove', this.onPointermove)

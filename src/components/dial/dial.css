@@ -62,26 +62,46 @@
   &[data-size='xs'] {
     width: var(--dial-size-xs);
     height: var(--dial-size-xs);
+
+    & + .tooltip {
+      top: calc(var(--dial-size-xs) * -1);
+    }
   }
 
   &[data-size='s'] {
     width: var(--dial-size-s);
     height: var(--dial-size-s);
+
+    & + .tooltip {
+      top: calc(var(--dial-size-s) * -1);
+    }
   }
 
   &[data-size='m'] {
     width: var(--dial-size-m);
     height: var(--dial-size-m);
+
+    & + .tooltip {
+      top: calc(var(--dial-size-m) * -1);
+    }
   }
 
   &[data-size='l'] {
     width: var(--dial-size-l);
     height: var(--dial-size-l);
+
+    & + .tooltip {
+      top: calc(var(--dial-size-l) * -1);
+    }
   }
 
   &[data-size='xl'] {
     width: var(--dial-size-xl);
     height: var(--dial-size-xl);
+
+    & + .tooltip {
+      top: calc(var(--dial-size-xl) * -1);
+    }
   }
 
   /* Colors */
@@ -128,13 +148,7 @@
   }
 }
 
-.tooltip-container {
+.tooltip {
   position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  .tooltip {
-    --tooltip-border-color: var(--dial-tooltip-border-color);
-  }
+  transform: translateY(calc(-50% - 4px));
 }

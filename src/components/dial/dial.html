@@ -1,11 +1,9 @@
 <div class="dial">
-    <div class="tooltip-container">
-        <div class="tooltip" hidden ref="tooltip"></div>
-    </div>
-
     <div class="handle" ref="handle"></div>
 
     <div class="input visually-hidden">
         <slot name="input"></slot>
     </div>
 </div>
+
+<div id="tooltip" popover class="tooltip" ref="tooltip"></div>
