@@ -1,11 +1,12 @@
 @import url('../../css/helpers/accessibility.css');
 
 :host {
-  --dial-color: #ddd;
-  --dial-cursor-color: #000;
-  --dial-border-color: #aaa;
-  --dial-range-color: #000;
-  --dial-tooltip-border-color: var(--c-cyan);
+  /* Default color: 'gray' */
+  --dial-color: var(--mono-70);
+  --dial-cursor-color: var(--mono-00);
+  --dial-border-color: var(--mono-80);
+  --dial-tooltip-border-color: var(--cyan-50);
+
   /* Sizes */
   --dial-size-xs: 22px;
   --dial-size-s: 28px;
@@ -27,65 +28,103 @@
   width: var(--dial-size-xs);
   height: var(--dial-size-xs);
 
-  &::after,
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 100%;
-    z-index: 0;
-  }
-
   .handle {
-    overflow: hidden;
     position: relative;
-    background-color: var(--dial-border-color);
     width: 100%;
     height: 100%;
     border-radius: 100%;
-    border: 50% solid var(--dial-border-color);
-    z-index: 1;
+    backface-visibility: visible;
+    box-shadow: 0 0 2px 0 rgb(from var(--mono-00) r g b / 10%);
 
     &::before {
+      background-color: var(--dial-color);
       content: '';
       position: absolute;
-      inset: 8%;
-      background: var(--dial-color);
+      border: 3px solid var(--dial-border-color);
+      inset: 0;
       border-radius: 100%;
     }
 
     &::after {
       content: '';
       position: absolute;
-      width: 12%;
+      width: 4px;
       height: 50%;
-      left: 44%;
+      left: calc(50% - 2px);
       top: 0;
       background: var(--dial-cursor-color);
-      border-bottom-right-radius: 50%;
-      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 2px;
     }
   }
 
+  /* Sizes */
   &[data-size='xs'] {
     width: var(--dial-size-xs);
     height: var(--dial-size-xs);
   }
+
   &[data-size='s'] {
     width: var(--dial-size-s);
     height: var(--dial-size-s);
   }
+
   &[data-size='m'] {
     width: var(--dial-size-m);
     height: var(--dial-size-m);
   }
+
   &[data-size='l'] {
     width: var(--dial-size-l);
     height: var(--dial-size-l);
   }
+
   &[data-size='xl'] {
     width: var(--dial-size-xl);
     height: var(--dial-size-xl);
+  }
+
+  /* Colors */
+  &[data-color='gray'] {
+    --dial-color: var(--mono-70);
+    --dial-cursor-color: var(--mono-00);
+    --dial-border-color: var(--mono-80);
+  }
+
+  &[data-color='light-gray'] {
+    --dial-color: var(--mono-90);
+    --dial-cursor-color: var(--mono-00);
+    --dial-border-color: var(--mono-80);
+  }
+
+  &[data-color='dark-gray'] {
+    --dial-color: var(--mono-40);
+    --dial-cursor-color: var(--mono-90);
+    --dial-border-color: var(--mono-80);
+  }
+
+  &[data-color='red'] {
+    --dial-color: var(--matt-red-50);
+    --dial-cursor-color: var(--mono-90);
+    --dial-border-color: var(--mono-80);
+  }
+
+  &[data-color='yellow'] {
+    --dial-color: var(--matt-yellow-50);
+    --dial-cursor-color: var(--mono-00);
+    --dial-border-color: var(--mono-80);
+  }
+
+  &[data-color='green'] {
+    --dial-color: var(--matt-green-50);
+    --dial-cursor-color: var(--mono-00);
+    --dial-border-color: var(--mono-80);
+  }
+
+  &[data-color='blue'] {
+    --dial-color: var(--matt-blue-50);
+    --dial-cursor-color: var(--mono-90);
+    --dial-border-color: var(--mono-80);
   }
 }
 

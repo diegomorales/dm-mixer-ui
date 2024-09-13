@@ -42,7 +42,7 @@ export default class Dial extends Base {
   static styles = [dialStyles, tooltipStyles].join('')
 
   static get observedAttributes() {
-    return ['name', 'value', 'size']
+    return ['name', 'value', 'size', 'color']
   }
 
   constructor() {
@@ -194,6 +194,10 @@ export default class Dial extends Base {
 
     if (name === 'size') {
       this.root.setAttribute('data-size', newV)
+    }
+
+    if (name === 'color') {
+      this.root.setAttribute('data-color', newV)
     }
   }
 

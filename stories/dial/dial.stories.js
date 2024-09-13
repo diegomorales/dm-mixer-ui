@@ -9,18 +9,10 @@ export default {
     dial.addEventListener('release', args.release)
 
     dial.setAttribute('size', args.size)
+    dial.setAttribute('color', args.color)
 
     return dial
   },
-  // decorators: [
-  //   (story) => {
-  //     const decorator = document.createElement('div')
-  //     decorator.style.maxWidth = '120px'
-  //     decorator.style.marginTop = '3rem'
-  //     decorator.appendChild(story())
-  //     return decorator
-  //   },
-  // ],
   args: {
     move: fn(),
     press: fn(),
@@ -31,11 +23,27 @@ export default {
       control: 'select',
       options: ['xs', 's', 'm', 'l', 'xl'],
     },
+    color: {
+      control: 'select',
+      options: [
+        'gray',
+        'light-gray',
+        'dark-gray',
+        'red',
+        'yellow',
+        'green',
+        'blue',
+      ],
+    },
+  },
+  parameters: {
+    layout: 'centered',
   },
 }
 
 export const dial = {
   args: {
     size: 'xs',
+    color: 'gray',
   },
 }
