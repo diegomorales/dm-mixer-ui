@@ -96,6 +96,11 @@ export default class Dial extends Base {
     this._tooltip.textContent = scaleRotation(this._currentRotation)
   }
 
+  onDblClick = (e) => {
+    e.stopPropagation()
+    this.dispatch('dblclick')
+  }
+
   onPointermove(e) {
     e.preventDefault()
 
@@ -173,6 +178,7 @@ export default class Dial extends Base {
 
   bindEvents() {
     this._handle.addEventListener('pointerdown', this.onPointerdown)
+    this._handle.addEventListener('dblclick', this.onDblClick)
   }
 
   attributeChangedCallback(name, oldV, newV) {

@@ -38,7 +38,12 @@ export class Base extends window.HTMLElement {
     return Array.from(this.shadowRoot.querySelectorAll(`[ref="${refName}"]`))
   }
 
-  dispatch(eventName, data) {
+  /**
+   *
+   * @param {string} eventName
+   * @param {Object} [data={}]
+   */
+  dispatch(eventName, data = {}) {
     this.dispatchEvent(
       new window.CustomEvent(eventName, {
         detail: data,

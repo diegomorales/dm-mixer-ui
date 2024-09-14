@@ -7,6 +7,7 @@ export default {
     dial.addEventListener('move', args.move)
     dial.addEventListener('press', args.press)
     dial.addEventListener('release', args.release)
+    dial.addEventListener('dblclick', args.dblclick)
 
     dial.setAttribute('size', args.size)
     dial.setAttribute('color', args.color)
@@ -17,6 +18,7 @@ export default {
     move: fn(),
     press: fn(),
     release: fn(),
+    dblclick: fn(),
   },
   argTypes: {
     size: {
