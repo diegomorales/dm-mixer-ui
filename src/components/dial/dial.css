@@ -227,6 +227,7 @@
 
   &[data-label-position='top'] {
     .label {
+      width: 100%;
       margin-bottom: 4px;
       bottom: 100%;
       text-align: center;
