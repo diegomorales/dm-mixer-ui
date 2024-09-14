@@ -6,6 +6,7 @@
   --dial-cursor-color: var(--mono-00);
   --dial-border-color: var(--mono-80);
   --dial-tooltip-border-color: var(--cyan-50);
+  --dial-tooltip-offset-top: 4px;
 
   /* Sizes */
   --dial-size-xs: 22px;
@@ -150,5 +151,5 @@
 
 .tooltip {
   position: absolute;
-  transform: translateY(calc(-50% - 4px));
+  transform: translateY(calc(-50% - var(--dial-tooltip-offset-top)));
 }

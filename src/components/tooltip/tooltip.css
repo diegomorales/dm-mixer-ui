@@ -1,7 +1,7 @@
 .tooltip {
   --tooltip-background-color: var(--mono-100);
   --tooltip-border-color: var(--cyan-50);
-  --tooltip-border-width: 3px;
+  --tooltip-border-width: 2px;
 }
 
 .tooltip:popover-open {
@@ -12,8 +12,8 @@
   justify-content: center;
   border: var(--tooltip-border-width) solid var(--tooltip-border-color);
   background-color: var(--tooltip-background-color);
-  border-radius: 4px;
-  box-shadow: var(--tooltip-box-shadow, 0 0 4px 4px rgb(0 0 0 / 5%));
-  font-family: var(--font-monospace);
-  font-size: var(--type-size-30);
+  border-radius: 2px;
+  box-shadow: 0 3px 8px 0 rgb(from var(--mono-00) r g b / 20%);
+  font-family: var(--font-monospace), monospace;
+  font-size: calc(var(--type-size-2) * 1px);
 }
