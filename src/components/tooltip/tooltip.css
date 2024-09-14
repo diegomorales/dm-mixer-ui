@@ -15,5 +15,5 @@
   border-radius: 2px;
   box-shadow: 0 3px 8px 0 rgb(from var(--mono-00) r g b / 20%);
   font-family: var(--font-monospace), monospace;
-  font-size: calc(var(--type-size-2) * 1px);
+  font-size: var(--type-size-2);
 }

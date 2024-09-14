@@ -91,7 +91,7 @@ export const initialValue = {
 export const withRangeLabels = {
   args: {
     ...dial.args,
-    leftRange: '0.0',
-    rightRange: '1.0',
+    leftRange: '-10',
+    rightRange: '+10',
   },
 }

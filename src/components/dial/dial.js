@@ -226,6 +226,9 @@ export default class Dial extends Base {
 
     this.#appendInputControl()
 
+    // Initial value
+    this.setHandleRotation(scaleCurrentValue(Number(this._input.value)))
+
     this.bindEvents()
 
     this.#isReady.resolve(0)

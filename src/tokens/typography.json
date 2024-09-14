@@ -1,27 +1,27 @@
 {
   "type-size-0": {
     "$type": "typography",
-    "$value": 8
+    "$value": "8px"
   },
   "type-size-1": {
     "$type": "typography",
-    "$value": 10
+    "$value": "10px"
   },
   "type-size-2": {
     "$type": "typography",
-    "$value": 12
+    "$value": "12px"
   },
   "type-size-3": {
     "$type": "typography",
-    "$value": 14
+    "$value": "14px"
   },
   "type-size-4": {
     "$type": "typography",
-    "$value": 16
+    "$value": "16px"
   },
   "type-size-5": {
     "$type": "typography",
-    "$value": 18
+    "$value": "18px"
   },
   "font-sans-serif": {
     "$type": "typography",

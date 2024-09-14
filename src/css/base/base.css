@@ -10,6 +10,6 @@ html {
 body {
   margin: 0;
   line-height: 1.5;
-  font-family: var(--font-body);
-  color: var(--c-black);
+  font-family: var(--font-sans-serif), sans-serif;
+  color: var(--mono-10);
 }

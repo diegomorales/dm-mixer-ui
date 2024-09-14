@@ -6,7 +6,11 @@
   --dial-cursor-color: var(--mono-00);
   --dial-border-color: var(--mono-80);
   --dial-tooltip-border-color: var(--cyan-50);
+
+  /* Offsets */
   --dial-tooltip-offset-top: 4px;
+  --dial-left-range-offset: 0px;
+  --dial-right-range-offset: 0px;
 
   /* Sizes */
   --dial-size-xs: 22px;
@@ -59,6 +63,26 @@
     }
   }
 
+  .left-range,
+  .right-range {
+    position: absolute;
+    bottom: calc(var(--type-size-0) * -1 + 1px);
+    font-family: var(--font-sans-serif), sans-serif;
+    font-size: var(--type-size-0);
+    line-height: 1;
+  }
+
+  .left-range {
+    text-align: right;
+    left: calc(6px - var(--dial-left-range-offset));
+    transform: translateX(-100%);
+  }
+
+  .right-range {
+    left: calc(100% - 6px + var(--dial-right-range-offset));
+    text-align: left;
+  }
+
   /* Sizes */
   &[data-size='xs'] {
     width: var(--dial-size-xs);
@@ -82,6 +106,14 @@
     width: var(--dial-size-m);
     height: var(--dial-size-m);
 
+    .left-range {
+      left: calc(7px - var(--dial-left-range-offset));
+    }
+
+    .right-range {
+      left: calc(100% - 7px + var(--dial-right-range-offset));
+    }
+
     & + .tooltip {
       top: calc(var(--dial-size-m) * -1);
     }
@@ -91,6 +123,14 @@
     width: var(--dial-size-l);
     height: var(--dial-size-l);
 
+    .left-range {
+      left: calc(8px - var(--dial-left-range-offset));
+    }
+
+    .right-range {
+      left: calc(100% - 8px + var(--dial-right-range-offset));
+    }
+
     & + .tooltip {
       top: calc(var(--dial-size-l) * -1);
     }
@@ -99,6 +139,14 @@
   &[data-size='xl'] {
     width: var(--dial-size-xl);
     height: var(--dial-size-xl);
+
+    .left-range {
+      left: calc(9px - var(--dial-left-range-offset));
+    }
+
+    .right-range {
+      left: calc(100% - 9px + var(--dial-right-range-offset));
+    }
 
     & + .tooltip {
       top: calc(var(--dial-size-xl) * -1);
