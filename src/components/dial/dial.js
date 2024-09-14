@@ -42,13 +42,23 @@ export default class Dial extends Base {
   static styles = [dialStyles, tooltipStyles].join('')
 
   static get observedAttributes() {
-    return ['name', 'value', 'size', 'color', 'left-range', 'right-range']
+    return [
+      'name',
+      'value',
+      'size',
+      'color',
+      'left-range',
+      'right-range',
+      'label',
+      'label-position',
+    ]
   }
 
   #handle
   #tooltip
   #leftRangeValue
   #rightRangeValue
+  #label
   #isReady = Promise.withResolvers()
 
   constructor() {
@@ -210,6 +220,14 @@ export default class Dial extends Base {
     if (name === 'right-range') {
       this.#rightRangeValue.textContent = newV
     }
+
+    if (name === 'label') {
+      this.#label.textContent = newV
+    }
+
+    if (name === 'label-position') {
+      this.root.setAttribute('data-label-position', newV)
+    }
   }
 
   attributeChangedCallback(name, oldV, newV) {
@@ -223,6 +241,7 @@ export default class Dial extends Base {
     this.#tooltip = this.ref('tooltip')[0]
     this.#leftRangeValue = this.ref('left-range-value')[0]
     this.#rightRangeValue = this.ref('right-range-value')[0]
+    this.#label = this.ref('label')[0]
 
     this.#appendInputControl()
 

@@ -1,4 +1,5 @@
 @import url('../../css/helpers/accessibility.css');
+@import url('../../css/base/resets.css');
 
 :host {
   /* Default color: 'gray' */
@@ -63,6 +64,14 @@
     }
   }
 
+  .label {
+    position: absolute;
+    font-family: var(--font-sans-serif), sans-serif;
+    font-size: var(--type-size-1);
+    font-weight: bold;
+    line-height: 1;
+  }
+
   .left-range,
   .right-range {
     position: absolute;
@@ -74,13 +83,12 @@
 
   .left-range {
     text-align: right;
-    left: calc(6px - var(--dial-left-range-offset));
-    transform: translateX(-100%);
+    right: calc(100% - 6px + var(--dial-left-range-offset));
   }
 
   .right-range {
-    left: calc(100% - 6px + var(--dial-right-range-offset));
     text-align: left;
+    left: calc(100% - 6px + var(--dial-right-range-offset));
   }
 
   /* Sizes */
@@ -107,7 +115,7 @@
     height: var(--dial-size-m);
 
     .left-range {
-      left: calc(7px - var(--dial-left-range-offset));
+      right: calc(100% - 7px + var(--dial-left-range-offset));
     }
 
     .right-range {
@@ -124,7 +132,7 @@
     height: var(--dial-size-l);
 
     .left-range {
-      left: calc(8px - var(--dial-left-range-offset));
+      right: calc(100% - 8px + var(--dial-left-range-offset));
     }
 
     .right-range {
@@ -141,7 +149,7 @@
     height: var(--dial-size-xl);
 
     .left-range {
-      left: calc(9px - var(--dial-left-range-offset));
+      right: calc(100% - 9px + var(--dial-left-range-offset));
     }
 
     .right-range {
@@ -194,6 +202,35 @@
     --dial-color: var(--matt-blue-50);
     --dial-cursor-color: var(--mono-90);
     --dial-border-color: var(--mono-80);
+  }
+
+  /* Label Position */
+  &[data-label-position='left'] {
+    .label {
+      top: 50%;
+      right: 100%;
+      margin-right: 4px;
+      text-align: right;
+      transform: translateY(-50%);
+    }
+  }
+
+  &[data-label-position='right'] {
+    .label {
+      top: 50%;
+      left: 100%;
+      margin-left: 4px;
+      transform: translateY(-50%);
+      text-align: left;
+    }
+  }
+
+  &[data-label-position='top'] {
+    .label {
+      margin-bottom: 4px;
+      bottom: 100%;
+      text-align: center;
+    }
   }
 }
 

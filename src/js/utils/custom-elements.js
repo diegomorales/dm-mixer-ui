@@ -14,7 +14,6 @@ export class Base extends window.HTMLElement {
   constructor() {
     super()
 
-    this._isConnected = false
     this.attachShadow({ mode: 'open' })
     this.addStyles(this.constructor.styles)
     this.shadowRoot.innerHTML = this.constructor.html
@@ -53,9 +52,5 @@ export class Base extends window.HTMLElement {
 
   get root() {
     return this.shadowRoot.querySelector('*:not(style)')
-  }
-
-  connectedCallback() {
-    this._isConnected = true
   }
 }

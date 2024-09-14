@@ -15,6 +15,9 @@ export default {
     args.value && dial.setAttribute('value', args.value)
     args.leftRange && dial.setAttribute('left-range', args.leftRange)
     args.rightRange && dial.setAttribute('right-range', args.rightRange)
+    args.label && dial.setAttribute('label', args.label)
+    args.labelPosition &&
+      dial.setAttribute('label-position', args.labelPosition)
 
     return dial
   },
@@ -90,8 +93,22 @@ export const initialValue = {
 
 export const withRangeLabels = {
   args: {
-    ...dial.args,
+    ...initialValue.args,
     leftRange: '-10',
     rightRange: '+10',
+  },
+}
+
+export const withLabel = {
+  args: {
+    ...withRangeLabels.args,
+    label: 'Label',
+    labelPosition: 'left',
+  },
+  argTypes: {
+    labelPosition: {
+      control: 'select',
+      options: ['left', 'right', 'top'],
+    },
   },
 }
