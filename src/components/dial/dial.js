@@ -54,9 +54,7 @@ export default class Dial extends Base {
   constructor() {
     super()
 
-    this.onPointerdown = this.onPointerdown.bind(this)
-    this.onPointermove = debounceRaf(this.onPointermove.bind(this))
-    this.onPointerup = this.onPointerup.bind(this)
+    this.#onPointermove = debounceRaf(this.#onPointermove)
 
     this._currentRotation = 0
     this._startY = 0
@@ -102,12 +100,12 @@ export default class Dial extends Base {
     this.#tooltip.textContent = scaleRotation(this._currentRotation)
   }
 
-  onDblClick = (e) => {
+  #onDblClick = (e) => {
     e.stopPropagation()
     this.dispatch('dblclick')
   }
 
-  onPointermove(e) {
+  #onPointermove = (e) => {
     e.preventDefault()
 
     const newY = e.clientY
@@ -147,7 +145,7 @@ export default class Dial extends Base {
     this.setTooltipValue()
   }
 
-  onPointerup() {
+  #onPointerup = () => {
     this.dispatch('release', {
       value: scaleRotation(this._currentRotation),
     })
@@ -158,11 +156,11 @@ export default class Dial extends Base {
       this.#tooltip.hidePopover()
     }
 
-    document.removeEventListener('pointermove', this.onPointermove)
-    document.removeEventListener('pointerup', this.onPointerup)
+    document.removeEventListener('pointermove', this.#onPointermove)
+    document.removeEventListener('pointerup', this.#onPointerup)
   }
 
-  onPointerdown(e) {
+  #onPointerdown = (e) => {
     e.preventDefault()
 
     this._startY = e.clientY
@@ -178,13 +176,13 @@ export default class Dial extends Base {
       this.#tooltip.showPopover()
     }, config.tooltipDelay)
 
-    document.addEventListener('pointermove', this.onPointermove)
-    document.addEventListener('pointerup', this.onPointerup)
+    document.addEventListener('pointermove', this.#onPointermove)
+    document.addEventListener('pointerup', this.#onPointerup)
   }
 
   bindEvents() {
-    this.#handle.addEventListener('pointerdown', this.onPointerdown)
-    this.#handle.addEventListener('dblclick', this.onDblClick)
+    this.#handle.addEventListener('pointerdown', this.#onPointerdown)
+    this.#handle.addEventListener('dblclick', this.#onDblClick)
   }
 
   update(name, newV) {
