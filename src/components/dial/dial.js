@@ -42,8 +42,14 @@ export default class Dial extends Base {
   static styles = [dialStyles, tooltipStyles].join('')
 
   static get observedAttributes() {
-    return ['name', 'value', 'size', 'color']
+    return ['name', 'value', 'size', 'color', 'left-range', 'right-range']
   }
+
+  #handle
+  #tooltip
+  #leftRangeValue
+  #rightRangeValue
+  #isReady = Promise.withResolvers()
 
   constructor() {
     super()
@@ -77,7 +83,7 @@ export default class Dial extends Base {
   /**
    * Dynamically create an input as a slotted element.
    */
-  appendInputControl() {
+  #appendInputControl = () => {
     const ctrl = document.createElement('input')
     ctrl.type = 'number'
     ctrl.slot = 'input'
@@ -89,11 +95,11 @@ export default class Dial extends Base {
   }
 
   setHandleRotation(deg) {
-    this._handle.style.transform = deg2Matrix(deg)
+    this.#handle.style.transform = deg2Matrix(deg)
   }
 
   setTooltipValue() {
-    this._tooltip.textContent = scaleRotation(this._currentRotation)
+    this.#tooltip.textContent = scaleRotation(this._currentRotation)
   }
 
   onDblClick = (e) => {
@@ -149,7 +155,7 @@ export default class Dial extends Base {
     if (this._tooltipTimeout) {
       clearTimeout(this._tooltipTimeout)
     } else {
-      this._tooltip.hidePopover()
+      this.#tooltip.hidePopover()
     }
 
     document.removeEventListener('pointermove', this.onPointermove)
@@ -160,7 +166,7 @@ export default class Dial extends Base {
     e.preventDefault()
 
     this._startY = e.clientY
-    this._currentRotation = matrix2Deg(getStyleValue(this._handle, 'transform'))
+    this._currentRotation = matrix2Deg(getStyleValue(this.#handle, 'transform'))
 
     this.dispatch('press', {
       value: scaleRotation(this._currentRotation),
@@ -169,7 +175,7 @@ export default class Dial extends Base {
     this._tooltipTimeout = setTimeout(() => {
       this.setTooltipValue()
       this._tooltipTimeout = 0
-      this._tooltip.showPopover()
+      this.#tooltip.showPopover()
     }, config.tooltipDelay)
 
     document.addEventListener('pointermove', this.onPointermove)
@@ -177,17 +183,18 @@ export default class Dial extends Base {
   }
 
   bindEvents() {
-    this._handle.addEventListener('pointerdown', this.onPointerdown)
-    this._handle.addEventListener('dblclick', this.onDblClick)
+    this.#handle.addEventListener('pointerdown', this.onPointerdown)
+    this.#handle.addEventListener('dblclick', this.onDblClick)
   }
 
-  attributeChangedCallback(name, oldV, newV) {
+  update(name, newV) {
     if (name === 'name') {
       this._input.name = newV
     }
 
     if (name === 'value') {
       this._input.value = newV
+      this.setHandleRotation(scaleCurrentValue(Number(this._input.value)))
     }
 
     if (name === 'size') {
@@ -197,17 +204,32 @@ export default class Dial extends Base {
     if (name === 'color') {
       this.root.setAttribute('data-color', newV)
     }
+
+    if (name === 'left-range') {
+      this.#leftRangeValue.textContent = newV
+    }
+
+    if (name === 'right-range') {
+      this.#rightRangeValue.textContent = newV
+    }
+  }
+
+  attributeChangedCallback(name, oldV, newV) {
+    this.#isReady.promise.then(() => {
+      this.update(name, newV)
+    })
   }
 
   connectedCallback() {
-    this._handle = this.ref('handle')[0]
-    this._tooltip = this.ref('tooltip')[0]
+    this.#handle = this.ref('handle')[0]
+    this.#tooltip = this.ref('tooltip')[0]
+    this.#leftRangeValue = this.ref('left-range-value')[0]
+    this.#rightRangeValue = this.ref('right-range-value')[0]
 
-    this.appendInputControl()
-
-    // Initial state
-    this.setHandleRotation(scaleCurrentValue(Number(this._input.value)))
+    this.#appendInputControl()
 
     this.bindEvents()
+
+    this.#isReady.resolve(0)
   }
 }
