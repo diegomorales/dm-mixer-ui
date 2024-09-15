@@ -7,4 +7,5 @@
 @import url('css/vars/typography.css');
 
 /* END Generated CSS vars */
+@import url('components/channel-section/channel-section.css');
 @import url('css/helpers/accessibility.css');

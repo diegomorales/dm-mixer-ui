@@ -1,0 +1,9 @@
+.channel-section {
+  border-top: 1px solid var(--mono-50);
+  max-width: 100px;
+  padding-bottom: 2px;
+}
+
+.header {
+  min-height: 4px;
+}
