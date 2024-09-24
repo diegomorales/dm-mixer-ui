@@ -11,11 +11,10 @@ export default class Checkbox extends Base {
     return ['name', 'value', 'label', 'checked']
   }
 
-  #isReady = Promise.withResolvers()
   #input
   #label
 
-  #updateFromAttr = (name, newV) => {
+  update(name, newV) {
     if (name === 'name') {
       this.#input.name = newV
     }
@@ -33,7 +32,7 @@ export default class Checkbox extends Base {
     const ctrl = document.createElement('input')
     ctrl.type = 'checkbox'
     ctrl.slot = 'input'
-    ctrl.checked = false
+    ctrl.checked = this.hasAttribute('checked')
 
     this.#input = this.appendChild(ctrl)
   }
@@ -47,17 +46,11 @@ export default class Checkbox extends Base {
     this.#input.addEventListener('change', this.#onChange)
   }
 
-  attributeChangedCallback(name, oldV, newV) {
-    this.#isReady.promise.then(() => {
-      this.#updateFromAttr(name, newV)
-    })
-  }
-
   connectedCallback() {
     this.#label = this.ref('label')[0]
     this.#appendInputControl()
     this.#bindEvents()
 
-    this.#isReady.resolve(0)
+    this._isReady.resolve(0)
   }
 }
