@@ -1,5 +1,7 @@
 <div class="dial">
-    <div class="handle" ref="handle"></div>
+    <div class="control">
+        <div class="handle" ref="handle"></div>
+    </div>
 
     <div class="input visually-hidden">
         <slot name="input"></slot>
@@ -7,8 +9,10 @@
 
     <p class="label" ref="label"></p>
 
-    <div class="left-range" ref="left-range-value"></div>
-    <div class="right-range" ref="right-range-value"></div>
+    <div class="range-values">
+        <div class="left-range" ref="left-range-value"></div>
+        <div class="right-range" ref="right-range-value"></div>
+    </div>
 </div>
 
 <div id="tooltip" popover class="tooltip" ref="tooltip"></div>
