@@ -8,8 +8,6 @@ export const renderChannelSection = (args, slot) => `
     ${args.label ? `<p slot="label">${args.label}</p>` : ''}
     ${args.checkbox ? renderCheckbox(args.checkbox, 'checkbox') : ''}
 
-    <div style="background-color: paleturquoise; height: 200px; align-items: center; justify-content: center; display: flex; text-align: center">
-      section content
-    </div>
+    ${args.content}
   </d-channel-section>
 `

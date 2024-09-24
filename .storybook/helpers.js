@@ -10,3 +10,11 @@ export const htmlToDocFrag = (html) => {
 
   return tmp.content
 }
+
+export const hideControl = (name) => ({
+  [name]: {
+    table: {
+      disable: true,
+    },
+  },
+})

@@ -9,7 +9,6 @@
   display: block;
 
   .header {
-    min-height: 4px;
     display: flex;
     line-height: 1.2;
     font-size: var(--type-size-1);

@@ -8,6 +8,9 @@ for (let c in Components) {
 /** @type { import('@storybook/html').Preview } */
 const preview = {
   parameters: {
+    actions: {
+      disable: true,
+    },
     controls: {
       disableSaveFromUI: true,
       matchers: {
