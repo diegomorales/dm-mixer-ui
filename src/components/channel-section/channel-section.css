@@ -1,9 +1,37 @@
+@import url('../../css/helpers/accessibility.css');
+@import url('../../css/base/resets.css');
+
 .channel-section {
   border-top: 1px solid var(--mono-50);
   max-width: 100px;
   padding-bottom: 2px;
+  padding-top: 2px;
+  display: block;
+
+  .header {
+    min-height: 4px;
+    display: flex;
+    line-height: 1.2;
+    font-size: var(--type-size-1);
+    font-weight: 700;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+
+  &.is-collapsible {
+    .arrow-button {
+      display: block;
+    }
+  }
+
+  &.is-collapsed {
+    .content-container {
+      display: none;
+    }
+  }
 }
 
-.header {
-  min-height: 4px;
+.arrow-button {
+  display: none;
+  margin-left: auto;
 }

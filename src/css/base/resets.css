@@ -6,12 +6,6 @@
 
 button,
 input,
-textarea,
-select {
-  font: inherit;
-}
-
-input,
 select,
 textarea {
   appearance: none;
@@ -19,6 +13,7 @@ textarea {
   margin: 0;
   padding: 0;
   background: none;
+  font: inherit;
 }
 
 img,

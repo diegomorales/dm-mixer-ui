@@ -1,15 +1,8 @@
+import { renderCheckbox } from './checkbox.js'
+
 export default {
   title: 'Components/Checkbox',
-  render: (args) => {
-    const checkbox = document.createElement('d-checkbox')
-
-    args.label && checkbox.setAttribute('label', args.label)
-    args.name && checkbox.setAttribute('name', args.name)
-    args.value && checkbox.setAttribute('value', args.value)
-    args.checked && checkbox.setAttribute('checked', '')
-
-    return checkbox
-  },
+  render: renderCheckbox,
   args: {
     name: 'checkbox-1',
     value: '1',

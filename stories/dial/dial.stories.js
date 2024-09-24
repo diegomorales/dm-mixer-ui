@@ -1,53 +1,9 @@
-import { fn } from '@storybook/test'
+import { renderDial } from './dial.js'
 
 export default {
   title: 'Components/Dial',
-  render: (args) => {
-    const dial = document.createElement('d-dial')
-    dial.addEventListener('move', args.move)
-    dial.addEventListener('press', args.press)
-    dial.addEventListener('release', args.release)
-    dial.addEventListener('dblclick', args.dblclick)
-
-    dial.setAttribute('size', args.size)
-    dial.setAttribute('color', args.color)
-
-    args.value && dial.setAttribute('value', args.value)
-    args.leftRange && dial.setAttribute('left-range', args.leftRange)
-    args.rightRange && dial.setAttribute('right-range', args.rightRange)
-    args.label && dial.setAttribute('label', args.label)
-    args.labelPosition &&
-      dial.setAttribute('label-position', args.labelPosition)
-
-    return dial
-  },
-  args: {
-    move: fn(),
-    press: fn(),
-    release: fn(),
-    dblclick: fn(),
-  },
+  render: renderDial,
   argTypes: {
-    move: {
-      table: {
-        disable: true,
-      },
-    },
-    press: {
-      table: {
-        disable: true,
-      },
-    },
-    release: {
-      table: {
-        disable: true,
-      },
-    },
-    dblclick: {
-      table: {
-        disable: true,
-      },
-    },
     size: {
       control: 'select',
       options: ['xs', 's', 'm', 'l', 'xl'],
@@ -79,6 +35,7 @@ export default {
 
 export const dial = {
   args: {
+    name: 'dial-1',
     size: 'xs',
     color: 'gray',
   },

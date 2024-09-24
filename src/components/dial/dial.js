@@ -59,7 +59,6 @@ export default class Dial extends Base {
   #leftRangeValue
   #rightRangeValue
   #label
-  #isReady = Promise.withResolvers()
 
   constructor() {
     super()
@@ -230,12 +229,6 @@ export default class Dial extends Base {
     }
   }
 
-  attributeChangedCallback(name, oldV, newV) {
-    this.#isReady.promise.then(() => {
-      this.update(name, newV)
-    })
-  }
-
   connectedCallback() {
     this.#handle = this.ref('handle')[0]
     this.#tooltip = this.ref('tooltip')[0]
@@ -250,6 +243,6 @@ export default class Dial extends Base {
 
     this.bindEvents()
 
-    this.#isReady.resolve(0)
+    this._isReady.resolve(undefined)
   }
 }
