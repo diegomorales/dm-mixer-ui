@@ -1,15 +1,20 @@
 import { toStyleSheet } from './css'
 
-export class Base extends window.HTMLElement {
-  static tagName
+export const defineMixin = (superclass) =>
+  class extends superclass {
+    static tagName
 
-  static define() {
-    if (customElements.get(this.tagName)) {
-      return
+    static define() {
+      if (customElements.get(this.tagName)) {
+        return
+      }
+
+      customElements.define(this.tagName, this)
     }
-
-    customElements.define(this.tagName, this)
   }
+
+export class Base extends defineMixin(HTMLElement) {
+  _isReady = Promise.withResolvers()
 
   constructor() {
     super()
@@ -18,6 +23,21 @@ export class Base extends window.HTMLElement {
     this.addStyles(this.constructor.styles)
     this.shadowRoot.innerHTML = this.constructor.html
   }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    this._isReady.promise.then(() => {
+      this.update(name, newValue)
+    })
+  }
+
+  /**
+   * Use this instead of attributeChangedCallback().
+   *
+   * @param {string} name
+   * @param {string|number|boolean} newValue
+   */
+  // eslint-disable-next-line no-unused-vars
+  update(name, newValue) {}
 
   /**
    *
