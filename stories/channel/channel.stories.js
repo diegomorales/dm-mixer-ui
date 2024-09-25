@@ -23,6 +23,7 @@ export const channel = {
       content: renderDial(trimDialArgs),
     },
     comp: {
+      name: 'comp',
       collapsible: true,
       checkbox: {
         label: 'COMP',
@@ -30,6 +31,7 @@ export const channel = {
       },
     },
     filters: {
+      name: 'filters',
       collapsible: true,
       label: 'FILTERS',
     },

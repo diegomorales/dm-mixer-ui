@@ -2,7 +2,7 @@ import { renderDial } from './dial.js'
 
 export default {
   title: 'Components/Dial',
-  render: renderDial,
+  render: (args) => renderDial(args),
   argTypes: {
     size: {
       control: 'select',

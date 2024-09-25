@@ -2,7 +2,7 @@ import { renderCheckbox } from './checkbox.js'
 
 export default {
   title: 'Components/Checkbox',
-  render: renderCheckbox,
+  render: (args) => renderCheckbox(args),
   args: {
     name: 'checkbox-1',
     value: '1',
