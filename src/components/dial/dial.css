@@ -84,7 +84,9 @@
     }
 
     & + .tooltip {
-      top: calc(var(--dial-size-xs) * -1);
+      left: calc(
+        anchor(left) + (var(--dial-size-xs) / 2) - (var(--tooltip-width) / 2)
+      );
     }
   }
 
@@ -95,7 +97,9 @@
     }
 
     & + .tooltip {
-      top: calc(var(--dial-size-s) * -1);
+      left: calc(
+        anchor(left) + (var(--dial-size-s) / 2) - (var(--tooltip-width) / 2)
+      );
     }
   }
 
@@ -114,7 +118,9 @@
     }
 
     & + .tooltip {
-      top: calc(var(--dial-size-m) * -1);
+      left: calc(
+        anchor(left) + (var(--dial-size-m) / 2) - (var(--tooltip-width) / 2)
+      );
     }
   }
 
@@ -133,7 +139,9 @@
     }
 
     & + .tooltip {
-      top: calc(var(--dial-size-l) * -1);
+      left: calc(
+        anchor(left) + (var(--dial-size-l) / 2) - (var(--tooltip-width) / 2)
+      );
     }
   }
 
@@ -152,7 +160,9 @@
     }
 
     & + .tooltip {
-      top: calc(var(--dial-size-xl) * -1);
+      left: calc(
+        anchor(left) + (var(--dial-size-xl) / 2) - (var(--tooltip-width) / 2)
+      );
     }
   }
 
@@ -233,6 +243,7 @@
 .control {
   width: var(--dial-size-xs);
   height: var(--dial-size-xs);
+  anchor-name: --dial-control;
 }
 
 .range-values {
@@ -255,5 +266,8 @@
 
 .tooltip {
   position: absolute;
-  transform: translateY(calc(-50% - var(--dial-tooltip-offset-top)));
+  position-anchor: --dial-control;
+  top: calc(
+    anchor(top) - var(--tooltip-height) - var(--dial-tooltip-offset-top)
+  );
 }

@@ -2,11 +2,14 @@
   --tooltip-background-color: var(--mono-100);
   --tooltip-border-color: var(--cyan-50);
   --tooltip-border-width: 2px;
+  --tooltip-height: 24px;
+  --tooltip-width: 70px;
 }
 
 .tooltip:popover-open {
-  width: 70px;
-  height: 24px;
+  margin: 0;
+  width: var(--tooltip-width);
+  height: var(--tooltip-height);
   display: flex;
   align-items: center;
   justify-content: center;
