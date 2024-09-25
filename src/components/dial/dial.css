@@ -78,36 +78,15 @@
 
   /* Sizes */
   &[data-size='xs'] {
-    .control {
-      width: var(--dial-size-xs);
-      height: var(--dial-size-xs);
-    }
-
-    & + .tooltip {
-      left: calc(
-        anchor(left) + (var(--dial-size-xs) / 2) - (var(--tooltip-width) / 2)
-      );
-    }
+    --dial-current-size: var(--dial-size-xs);
   }
 
   &[data-size='s'] {
-    .control {
-      width: var(--dial-size-s);
-      height: var(--dial-size-s);
-    }
-
-    & + .tooltip {
-      left: calc(
-        anchor(left) + (var(--dial-size-s) / 2) - (var(--tooltip-width) / 2)
-      );
-    }
+    --dial-current-size: var(--dial-size-s);
   }
 
   &[data-size='m'] {
-    .control {
-      width: var(--dial-size-m);
-      height: var(--dial-size-m);
-    }
+    --dial-current-size: var(--dial-size-m);
 
     .left-range {
       padding-right: calc(7px + var(--dial-left-range-offset));
@@ -116,19 +95,10 @@
     .right-range {
       padding-left: calc(7px + var(--dial-right-range-offset));
     }
-
-    & + .tooltip {
-      left: calc(
-        anchor(left) + (var(--dial-size-m) / 2) - (var(--tooltip-width) / 2)
-      );
-    }
   }
 
   &[data-size='l'] {
-    .control {
-      width: var(--dial-size-l);
-      height: var(--dial-size-l);
-    }
+    --dial-current-size: var(--dial-size-l);
 
     .left-range {
       padding-right: calc(8px + var(--dial-left-range-offset));
@@ -137,19 +107,10 @@
     .right-range {
       padding-left: calc(8px + var(--dial-right-range-offset));
     }
-
-    & + .tooltip {
-      left: calc(
-        anchor(left) + (var(--dial-size-l) / 2) - (var(--tooltip-width) / 2)
-      );
-    }
   }
 
   &[data-size='xl'] {
-    .control {
-      width: var(--dial-size-xl);
-      height: var(--dial-size-xl);
-    }
+    --dial-current-size: var(--dial-size-xl);
 
     .left-range {
       padding-right: calc(9px + var(--dial-left-range-offset));
@@ -157,12 +118,6 @@
 
     .right-range {
       padding-left: calc(9px + var(--dial-right-range-offset));
-    }
-
-    & + .tooltip {
-      left: calc(
-        anchor(left) + (var(--dial-size-xl) / 2) - (var(--tooltip-width) / 2)
-      );
     }
   }
 
@@ -232,9 +187,10 @@
 
   &[data-label-position='top'] {
     .label {
-      width: 100%;
       margin-bottom: 4px;
       bottom: 100%;
+      left: calc(var(--dial-current-size) / 2);
+      transform: translateX(-50%);
       text-align: center;
     }
   }
@@ -242,8 +198,8 @@
 
 .control {
   position: relative;
-  width: var(--dial-size-xs);
-  height: var(--dial-size-xs);
+  width: var(--dial-current-size);
+  height: var(--dial-current-size);
   anchor-name: --dial-control;
 }
 
@@ -270,5 +226,8 @@
   position-anchor: --dial-control;
   top: calc(
     anchor(top) - var(--tooltip-height) - var(--dial-tooltip-offset-top)
+  );
+  left: calc(
+    anchor(left) + (var(--dial-current-size) / 2) - (var(--tooltip-width) / 2)
   );
 }
