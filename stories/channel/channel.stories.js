@@ -8,7 +8,7 @@ export default {
 
 const trimDialArgs = {
   name: 'trim',
-  label: 'trim',
+  label: 'TRIM',
   color: 'red',
   size: 's',
   labelPosition: 'left',
