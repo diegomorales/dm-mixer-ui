@@ -6,11 +6,12 @@ export default class ChannelSection extends Base {
   static tagName = 'd-channel-section'
   static styles = styles
   static html = html
-  static get properties() {
-    return ['collapsible']
+  static get observedAttributes() {
+    return ['collapsible', 'label']
   }
 
   #collapseButton
+  #labelEl
 
   constructor() {
     super()
@@ -19,6 +20,11 @@ export default class ChannelSection extends Base {
   update(name, newValue) {
     if (name === 'collapsible') {
       this.root.classList.toggle('is-collapsible', newValue)
+    }
+
+    if (name === 'label') {
+      this.#labelEl.innerHTML = newValue
+      this.root.classList.toggle('has-label', newValue !== '')
     }
   }
 
@@ -32,10 +38,9 @@ export default class ChannelSection extends Base {
 
   connectedCallback() {
     this.#collapseButton = this.ref('collapse-button')[0]
-    this.#bindEvents()
+    this.#labelEl = this.ref('label')[0]
 
-    // Initial state
-    this.update('collapsible', this.hasAttribute('collapsible'))
+    this.#bindEvents()
 
     this._isReady.resolve(0)
   }
