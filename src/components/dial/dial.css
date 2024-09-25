@@ -241,6 +241,7 @@
 }
 
 .control {
+  position: relative;
   width: var(--dial-size-xs);
   height: var(--dial-size-xs);
   anchor-name: --dial-control;
