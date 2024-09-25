@@ -1,6 +1,10 @@
 @import url('../../css/helpers/accessibility.css');
 @import url('../../css/base/resets.css');
 
+:host {
+  position: relative;
+}
+
 .channel-section {
   border-top: 1px solid var(--mono-50);
   max-width: 100px;

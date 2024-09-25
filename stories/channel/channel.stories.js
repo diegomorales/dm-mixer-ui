@@ -1,10 +1,37 @@
+import { renderDial } from '../dial/dial.js'
+import { renderChannel } from './channel.js'
+
 export default {
   title: 'Modules/Channel',
-  render: (args) => {
-    const channel = document.createElement('d-channel')
-
-    return channel
-  },
+  render: (args) => renderChannel(args),
 }
 
-export const channel = {}
+const trimDialArgs = {
+  name: 'trim',
+  label: 'trim',
+  color: 'red',
+  size: 's',
+  labelPosition: 'left',
+  leftRange: '0',
+  rightRange: '+20',
+}
+
+export const channel = {
+  args: {
+    trim: {
+      name: 'trim-section',
+      content: renderDial(trimDialArgs),
+    },
+    comp: {
+      collapsible: true,
+      checkbox: {
+        label: 'COMP',
+        name: 'comp-1',
+      },
+    },
+    filters: {
+      collapsible: true,
+      label: 'FILTERS',
+    },
+  },
+}

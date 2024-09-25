@@ -9,8 +9,9 @@ const placeholderSection = `
 
 export default {
   title: 'Components/Channel Section',
-  render: renderChannelSection,
+  render: (args) => renderChannelSection(args),
   args: {
+    name: 'section-name',
     content: placeholderSection,
   },
   argTypes: {

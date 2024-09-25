@@ -1,5 +1,7 @@
-.channel {
-  width: 76px;
-  border-left: 1px solid var(--mono-70);
-  border-right: 1px solid var(--mono-40);
+d-channel {
+  d-channel-section[name='trim-section'] {
+    d-dial[name='trim'] {
+      padding-left: 26px;
+    }
+  }
 }
