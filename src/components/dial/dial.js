@@ -101,12 +101,21 @@ export default class Dial extends Base {
     this._input = this.appendChild(ctrl)
   }
 
+  /**
+   *
+   * @param {number} value
+   * @returns {*}
+   */
+  transformTooltipValue = (value) => value
+
   setHandleRotation(deg) {
     this.#handle.style.transform = deg2Matrix(deg)
   }
 
   setTooltipValue() {
-    this.#tooltip.textContent = scaleRotation(this._currentRotation)
+    this.#tooltip.textContent = this.transformTooltipValue(
+      scaleRotation(this._currentRotation),
+    )
   }
 
   #onDblClick = (e) => {
