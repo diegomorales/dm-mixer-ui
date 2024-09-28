@@ -14,6 +14,7 @@ const trimDialArgs = {
   labelPosition: 'left',
   leftRange: '0',
   rightRange: '+20',
+  value: 0,
 }
 
 export const channel = {
