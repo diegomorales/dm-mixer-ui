@@ -1,6 +1,6 @@
 d-channel {
   d-channel-section[name='trim-section'] {
-    d-dial[name='trim'] {
+    d-dial[name='trim-gain'] {
       padding-left: 30px;
     }
   }

@@ -11,16 +11,32 @@ export default class Checkbox extends Base {
     return ['name', 'value', 'label', 'checked']
   }
 
-  #input
+  get value() {
+    return this._input.value
+  }
+
+  set value(v) {
+    this._input.value = v
+  }
+
+  get name() {
+    return this._input.name
+  }
+
+  set name(name) {
+    this._input.name = name
+  }
+
+  // #input
   #label
 
   update(name, newV) {
     if (name === 'name') {
-      this.#input.name = newV
+      this._input.name = newV
     }
 
     if (name === 'value') {
-      this.#input.value = newV
+      this._input.value = newV
     }
 
     if (name === 'label') {
@@ -32,9 +48,11 @@ export default class Checkbox extends Base {
     const ctrl = document.createElement('input')
     ctrl.type = 'checkbox'
     ctrl.slot = 'input'
+    ctrl.value = this.getAttribute('value') || '0' // default value
+    ctrl.name = this.getAttribute('name') || ''
     ctrl.checked = this.hasAttribute('checked')
 
-    this.#input = this.appendChild(ctrl)
+    this._input = this.appendChild(ctrl)
   }
 
   #onChange = (e) => {
@@ -43,14 +61,14 @@ export default class Checkbox extends Base {
   }
 
   #bindEvents = () => {
-    this.#input.addEventListener('change', this.#onChange)
+    this._input.addEventListener('change', this.#onChange)
   }
 
   connectedCallback() {
+    super.connectedCallback()
+
     this.#label = this.ref('label')[0]
     this.#appendInputControl()
     this.#bindEvents()
-
-    this._isReady.resolve(0)
   }
 }

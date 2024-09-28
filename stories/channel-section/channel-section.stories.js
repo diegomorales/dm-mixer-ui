@@ -32,6 +32,6 @@ export const channelSection = {
 export const withLabel = {
   args: {
     label: 'SECTION',
-    collapsible: true,
+    collapsible: false,
   },
 }

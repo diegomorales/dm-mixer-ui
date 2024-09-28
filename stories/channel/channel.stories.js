@@ -1,35 +1,30 @@
 import { renderDial } from '../dial/dial.js'
 import { renderChannel } from './channel.js'
+import { compSection, trimSection } from './data.js'
 
 export default {
   title: 'Modules/Channel',
   render: (args) => renderChannel(args),
 }
 
-const trimDialArgs = {
-  name: 'trim',
-  label: 'TRIM',
-  color: 'red',
-  size: 's',
-  labelPosition: 'left',
-  leftRange: '0',
-  rightRange: '+20',
-  value: 0,
-}
-
 export const channel = {
   args: {
     trim: {
       name: 'trim-section',
-      content: renderDial(trimDialArgs),
+      content: renderDial(trimSection.gain),
     },
     comp: {
       name: 'comp',
       collapsible: true,
       checkbox: {
         label: 'COMP',
-        name: 'comp-1',
+        name: 'comp-on',
+        value: 'on',
       },
+      content: `
+        ${renderDial(compSection.ratioDial)}
+        ${renderDial(compSection.thresholdDial)}
+      `,
     },
     filters: {
       name: 'filters',

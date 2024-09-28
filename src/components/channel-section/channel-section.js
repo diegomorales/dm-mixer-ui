@@ -19,7 +19,7 @@ export default class ChannelSection extends Base {
 
   update(name, newValue) {
     if (name === 'collapsible') {
-      this.root.classList.toggle('is-collapsible', newValue)
+      this.root.classList.toggle('is-collapsible', true)
     }
 
     if (name === 'label') {
@@ -37,11 +37,11 @@ export default class ChannelSection extends Base {
   }
 
   connectedCallback() {
+    super.connectedCallback()
+
     this.#collapseButton = this.ref('collapse-button')[0]
     this.#labelEl = this.ref('label')[0]
 
     this.#bindEvents()
-
-    this._isReady.resolve(0)
   }
 }

@@ -97,7 +97,8 @@ export default class Dial extends Base {
     ctrl.slot = 'input'
     ctrl.min = '0'
     ctrl.max = '1'
-    ctrl.value = '0' // default value
+    ctrl.value = this.getAttribute('value') || '0' // default value
+    ctrl.name = this.getAttribute('name') || ''
 
     this._input = this.appendChild(ctrl)
   }
@@ -240,6 +241,8 @@ export default class Dial extends Base {
   }
 
   connectedCallback() {
+    super.connectedCallback()
+
     this.#handle = this.ref('handle')[0]
     this.#tooltip = this.ref('tooltip')[0]
     this.#leftRangeValue = this.ref('left-range-value')[0]
@@ -252,7 +255,5 @@ export default class Dial extends Base {
     this.setHandleRotation(scaleCurrentValue(Number(this._input.value)))
 
     this.bindEvents()
-
-    this._isReady.resolve(undefined)
   }
 }

@@ -14,7 +14,7 @@ export const defineMixin = (superclass) =>
   }
 
 export class Base extends defineMixin(HTMLElement) {
-  _isReady = Promise.withResolvers()
+  #isReady = Promise.withResolvers()
 
   constructor() {
     super()
@@ -25,7 +25,7 @@ export class Base extends defineMixin(HTMLElement) {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this._isReady.promise.then(() => {
+    this.#isReady.promise.then(() => {
       this.update(name, newValue)
     })
   }
@@ -39,6 +39,7 @@ export class Base extends defineMixin(HTMLElement) {
   // eslint-disable-next-line no-unused-vars
   update(name, newValue) {}
 
+  afterConnected() {}
   /**
    *
    * @param {string} css
@@ -72,5 +73,13 @@ export class Base extends defineMixin(HTMLElement) {
 
   get root() {
     return this.shadowRoot.querySelector('*:not(style)')
+  }
+
+  connectedCallback() {
+    this.#isReady.promise.then(() => {
+      this.afterConnected()
+    })
+
+    this.#isReady.resolve(0)
   }
 }
