@@ -59,6 +59,7 @@ export default class Dial extends Base {
   #leftRangeValue
   #rightRangeValue
   #label
+  #transformTooltipValue = (value) => value
 
   constructor() {
     super()
@@ -101,12 +102,12 @@ export default class Dial extends Base {
     this._input = this.appendChild(ctrl)
   }
 
-  /**
-   *
-   * @param {number} value
-   * @returns {*}
-   */
-  transformTooltipValue = (value) => value
+  get transformTooltipValue() {
+    return this.#transformTooltipValue
+  }
+  set transformTooltipValue(fn) {
+    this.#transformTooltipValue = fn
+  }
 
   setHandleRotation(deg) {
     this.#handle.style.transform = deg2Matrix(deg)
