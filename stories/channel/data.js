@@ -33,3 +33,34 @@ export const compSection = {
     name: 'comp-threshold',
   },
 }
+
+export const filterSection = {
+  hpfDial: {
+    size: 'xs',
+    color: 'dark-gray',
+    leftRange: '20',
+    rightRange: '4k',
+    value: 0,
+    name: 'filter-hpf',
+  },
+  lpfDial: {
+    size: 'xs',
+    color: 'dark-gray',
+    leftRange: '0.1k',
+    rightRange: '20k',
+    value: 0,
+    name: 'filter-lpf',
+  },
+  hpfCheckbox: {
+    value: 'on',
+    name: 'hpf-on',
+    label: 'HPF',
+    labelPosition: 'right',
+  },
+  lpfCheckbox: {
+    value: 'on',
+    name: 'lpf-on',
+    label: 'LPF',
+    labelPosition: 'left',
+  },
+}

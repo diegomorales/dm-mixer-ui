@@ -6,12 +6,34 @@ d-channel {
   }
 
   d-channel-section[name='comp'] {
-    [name='comp-ratio'] {
+    d-dial[name='comp-ratio'] {
       padding-left: 30px;
     }
 
-    [name='comp-threshold'] {
+    d-dial[name='comp-threshold'] {
       padding-left: 8px;
+    }
+  }
+
+  d-channel-section[name='filters'] {
+    d-dial[name='filter-hpf'] {
+      padding-left: 36px;
+    }
+
+    d-dial[name='filter-lpf'] {
+      padding-left: 8px;
+    }
+
+    d-checkbox[name='hpf-on'] {
+      top: 6px;
+      left: 2px;
+      position: absolute;
+    }
+
+    d-checkbox[name='lpf-on'] {
+      top: 34px;
+      right: 2px;
+      position: absolute;
     }
   }
 }

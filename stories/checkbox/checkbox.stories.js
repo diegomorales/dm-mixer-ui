@@ -17,5 +17,12 @@ export const checkbox = {
 export const withLabel = {
   args: {
     label: 'Label',
+    labelPosition: 'left',
+  },
+  argTypes: {
+    labelPosition: {
+      control: 'select',
+      options: ['left', 'right'],
+    },
   },
 }

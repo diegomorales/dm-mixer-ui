@@ -11,11 +11,29 @@
 .checkbox {
   display: flex;
   align-items: center;
+  gap: 2px;
+
+  /* Label Position */
+  &[data-label-position='left'] {
+    .control {
+      order: 2;
+    }
+
+    .label {
+      order: 1;
+      text-align: right;
+    }
+  }
+
+  &[data-label-position='right'] {
+    .label {
+      text-align: left;
+    }
+  }
 }
 
 .label {
   margin-top: 1px;
-  margin-left: 2px;
   font-family: var(--font-sans-serif), sans-serif;
   font-size: var(--type-size-1);
   font-weight: 700;

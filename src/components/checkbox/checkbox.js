@@ -8,7 +8,7 @@ export default class Checkbox extends Base {
   static styles = styles
 
   static get observedAttributes() {
-    return ['name', 'value', 'label', 'checked']
+    return ['name', 'value', 'label', 'checked', 'label-position']
   }
 
   get value() {
@@ -41,6 +41,10 @@ export default class Checkbox extends Base {
 
     if (name === 'label') {
       this.#label.textContent = newV
+    }
+
+    if (name === 'label-position') {
+      this.root.setAttribute('data-label-position', newV)
     }
   }
 

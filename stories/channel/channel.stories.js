@@ -1,6 +1,7 @@
 import { renderDial } from '../dial/dial.js'
 import { renderChannel } from './channel.js'
-import { compSection, trimSection } from './data.js'
+import { compSection, filterSection, trimSection } from './data.js'
+import { renderCheckbox } from '../checkbox/checkbox.js'
 
 export default {
   title: 'Modules/Channel',
@@ -30,6 +31,12 @@ export const channel = {
       name: 'filters',
       collapsible: true,
       label: 'FILTERS',
+      content: `
+        ${renderDial(filterSection.hpfDial)}
+        ${renderDial(filterSection.lpfDial)}
+        ${renderCheckbox(filterSection.hpfCheckbox)}
+        ${renderCheckbox(filterSection.lpfCheckbox)}
+      `,
     },
   },
 }
