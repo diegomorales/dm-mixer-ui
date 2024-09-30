@@ -2,9 +2,6 @@ import '../src/main.css'
 import * as Components from '../src/main.js'
 import beautify from 'js-beautify'
 
-import prettier from 'prettier/standalone.mjs'
-import htmlParser from 'prettier/plugins/html.mjs'
-
 for (let c in Components) {
   Components[c].define()
 }
