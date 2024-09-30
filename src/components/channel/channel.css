@@ -4,4 +4,14 @@ d-channel {
       padding-left: 30px;
     }
   }
+
+  d-channel-section[name='comp'] {
+    [name='comp-ratio'] {
+      padding-left: 30px;
+    }
+
+    [name='comp-threshold'] {
+      padding-left: 8px;
+    }
+  }
 }

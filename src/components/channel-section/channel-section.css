@@ -16,6 +16,7 @@
     display: flex;
     align-items: flex-end;
     margin-bottom: 2px;
+    padding-left: 2px;
   }
 
   .label {
@@ -34,6 +35,10 @@
   }
 
   &.is-collapsed {
+    .arrow-button {
+      transform: rotate(90deg);
+    }
+
     .content-container {
       display: none;
     }
@@ -49,4 +54,5 @@
 .arrow-button {
   display: none;
   margin-left: auto;
+  align-self: center;
 }
