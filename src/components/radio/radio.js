@@ -12,6 +12,7 @@ export default class Radio extends Base {
   }
 
   #input
+  #internals
 
   get value() {
     return this.#input.value
@@ -19,15 +20,18 @@ export default class Radio extends Base {
 
   set value(v) {
     this.#input.value = v
-    this.internals.setFormValue(v)
+    this.#internals.setFormValue('', 'checked')
   }
 
   get checked() {
     return this.#input.checked
   }
+  // set checked(value) {
+  //   this.#input.checked = value
+  // }
 
   get form() {
-    return this.internals.form
+    return this.#internals.form
   }
 
   get name() {
@@ -35,16 +39,19 @@ export default class Radio extends Base {
   }
 
   get type() {
-    return 'text'
+    return 'radio'
   }
 
   constructor() {
     super()
-    this.internals = this.attachInternals()
+    this.#internals = this.attachInternals()
   }
 
   connectedCallback() {
     super.connectedCallback()
+    console.log(this.#internals) // ElementInternals object
+
+    this.#internals.setFormValue('off')
 
     this.#input = this.ref('input')[0]
   }
