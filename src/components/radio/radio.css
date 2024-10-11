@@ -1,0 +1,41 @@
+:host {
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.label {
+  margin-top: 1px;
+  font-family: var(--font-sans-serif), sans-serif;
+  font-size: var(--type-size-1);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.control {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background-color: var(--mono-90);
+
+  ::slotted(input) {
+    border-radius: 3px;
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 2px var(--mono-30);
+  }
+
+  ::slotted(input:checked) {
+    box-shadow: inset 0 0 0 4px var(--mono-30);
+  }
+}

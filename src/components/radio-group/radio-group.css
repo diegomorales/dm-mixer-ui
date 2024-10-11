@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  gap: 4px;
+  box-sizing: border-box;
+  flex-direction: column;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}

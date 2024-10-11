@@ -2,17 +2,19 @@ import { Base } from '../../js/utils/custom-elements.js'
 import styles from './radio.css?inline'
 import html from './radio.html?raw'
 
+let rId = 0
+
 export default class Radio extends Base {
-  static tagName = 'e-radio'
+  static tagName = 'd-radio'
   static styles = styles
   static html = html
-  static formAssociated = true
   static get observedAttributes() {
     return ['name', 'value', 'label', 'checked']
   }
 
+  #rId
   #input
-  #internals
+  #label
 
   get value() {
     return this.#input.value
@@ -20,22 +22,14 @@ export default class Radio extends Base {
 
   set value(v) {
     this.#input.value = v
-    this.#internals.setFormValue('', 'checked')
-  }
-
-  get checked() {
-    return this.#input.checked
-  }
-  // set checked(value) {
-  //   this.#input.checked = value
-  // }
-
-  get form() {
-    return this.#internals.form
   }
 
   get name() {
-    return this.getAttribute('name')
+    return this.#input.name
+  }
+
+  set name(name) {
+    this.#input.name = name
   }
 
   get type() {
@@ -44,15 +38,53 @@ export default class Radio extends Base {
 
   constructor() {
     super()
-    this.#internals = this.attachInternals()
+
+    this.#rId = ++rId
+  }
+
+  #onInputChange = (e) => {
+    e.stopPropagation()
+    this.dispatch('change', e)
+  }
+
+  #appendInputControl = () => {
+    const ctrl = document.createElement('input')
+    ctrl.type = 'radio'
+    ctrl.slot = 'input'
+    ctrl.value = this.getAttribute('value') || '' // default value
+    ctrl.name = this.getAttribute('name') || ''
+    ctrl.checked = this.hasAttribute('checked')
+
+    this.#input = this.appendChild(ctrl)
+  }
+
+  #appendLabel = () => {
+    const label = document.createElement('label')
+    label.slot = 'label'
+    label.setAttribute('for', `radio-${this.#rId}`)
+    this.#input.id = `radio-${this.#rId}`
+
+    this.#label = this.appendChild(label)
+  }
+
+  #bindEvents() {
+    this.#input.addEventListener('change', this.#onInputChange)
+  }
+
+  update(name, newV) {
+    if (name === 'label') {
+      if (!this.#label) {
+        this.#appendLabel()
+      }
+
+      this.#label.textContent = newV
+    }
   }
 
   connectedCallback() {
     super.connectedCallback()
-    console.log(this.#internals) // ElementInternals object
 
-    this.#internals.setFormValue('off')
-
-    this.#input = this.ref('input')[0]
+    this.#appendInputControl()
+    this.#bindEvents()
   }
 }
