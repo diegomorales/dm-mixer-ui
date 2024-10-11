@@ -11,13 +11,13 @@ export default class Checkbox extends Base {
     return ['name', 'value', 'label', 'checked', 'label-position']
   }
 
-  get value() {
-    return this._input.value
-  }
-
-  set value(v) {
-    this._input.value = v
-  }
+  // get value() {
+  //   return this._input.value
+  // }
+  //
+  // set value(v) {
+  //   this._input.value = v
+  // }
 
   get name() {
     return this._input.name
@@ -52,7 +52,7 @@ export default class Checkbox extends Base {
     const ctrl = document.createElement('input')
     ctrl.type = 'checkbox'
     ctrl.slot = 'input'
-    ctrl.value = this.getAttribute('value') || '0' // default value
+    // ctrl.value = this.getAttribute('value') || '0' // default value
     ctrl.name = this.getAttribute('name') || ''
     ctrl.checked = this.hasAttribute('checked')
 

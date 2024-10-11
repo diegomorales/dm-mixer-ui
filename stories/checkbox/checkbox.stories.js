@@ -5,7 +5,6 @@ export default {
   render: (args) => renderCheckbox(args),
   args: {
     name: 'checkbox-1',
-    value: '1',
     checked: false,
   },
 }

@@ -52,15 +52,31 @@ export const filterSection = {
     name: 'filter-lpf',
   },
   hpfCheckbox: {
-    value: 'on',
     name: 'hpf-on',
     label: 'HPF',
     labelPosition: 'right',
   },
   lpfCheckbox: {
-    value: 'on',
     name: 'lpf-on',
     label: 'LPF',
     labelPosition: 'left',
+  },
+}
+
+export const eqSection = {
+  routing: {
+    items: [
+      {
+        name: 'eq-routing',
+        value: 'eq-comp',
+        label: 'EQ ➞ Comp',
+        checked: true,
+      },
+      {
+        name: 'eq-routing',
+        value: 'comp-eq',
+        label: 'Comp ➞ EQ',
+      },
+    ],
   },
 }
