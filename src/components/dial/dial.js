@@ -13,6 +13,9 @@ const config = {
   maxRotation: 150, // degrees
   tooltipDelay: 200, // ms
   degreeStep: 1,
+  get keyboardDegreeStep() {
+    return this.degreeStep * 5
+  },
 }
 
 /**
@@ -45,6 +48,7 @@ export default class Dial extends Base {
     return [
       'name',
       'value',
+      'default',
       'size',
       'color',
       'left-range',
@@ -97,7 +101,8 @@ export default class Dial extends Base {
     ctrl.slot = 'input'
     ctrl.min = '0'
     ctrl.max = '1'
-    ctrl.value = this.getAttribute('value') || '0' // default value
+    ctrl.value =
+      this.getAttribute('value') || this.getAttribute('default') || '0' // default value
     ctrl.name = this.getAttribute('name') || ''
 
     this._input = this.appendChild(ctrl)
@@ -123,6 +128,7 @@ export default class Dial extends Base {
   #onDblClick = (e) => {
     e.stopPropagation()
     this.dispatch('dblclick')
+    this.value = this.getAttribute('default') || '0'
   }
 
   #onPointermove = (e) => {
@@ -200,9 +206,47 @@ export default class Dial extends Base {
     document.addEventListener('pointerup', this.#onPointerup)
   }
 
+  #onInputKeyDown = (e) => {
+    if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') {
+      return
+    }
+
+    e.preventDefault()
+
+    // 1.
+    this._startY = e.clientY
+    this._currentRotation = matrix2Deg(getStyleValue(this.#handle, 'transform'))
+
+    // 2.
+    if (e.key === 'ArrowUp') {
+      this._currentRotation += config.keyboardDegreeStep
+      if (this._currentRotation > config.maxRotation) {
+        this._currentRotation = config.maxRotation
+      }
+    }
+
+    if (e.key === 'ArrowDown') {
+      this._currentRotation -= config.keyboardDegreeStep
+      if (this._currentRotation < config.minRotation) {
+        this._currentRotation = config.minRotation
+      }
+    }
+
+    // 3.
+    this.setHandleRotation(this._currentRotation)
+
+    // Update internal 'value' value.
+    this._input.value = scaleRotation(this._currentRotation)
+
+    this.dispatch('move', {
+      value: this._input.value,
+    })
+  }
+
   bindEvents() {
     this.#handle.addEventListener('pointerdown', this.#onPointerdown)
     this.#handle.addEventListener('dblclick', this.#onDblClick)
+    this._input.addEventListener('keydown', this.#onInputKeyDown)
   }
 
   update(name, newV) {

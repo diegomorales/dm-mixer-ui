@@ -8,6 +8,7 @@ export const trimSection = {
     leftRange: '0',
     rightRange: '+20',
     value: 0,
+    default: 0.5,
   },
 }
 

@@ -203,6 +203,18 @@
   anchor-name: --dial-control;
 }
 
+.input {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  ::slotted(input) {
+    position: absolute;
+    inset: 0;
+    border-radius: 100%;
+  }
+}
+
 .range-values {
   display: grid;
   justify-content: center;
