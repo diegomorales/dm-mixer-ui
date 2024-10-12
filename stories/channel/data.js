@@ -153,3 +153,42 @@ export const loShelfSection = {
     rightRange: '+15',
   },
 }
+
+export const sendsSection = {
+  aux1Dial: {
+    size: 'xs',
+    name: 'aux1-gain',
+    color: 'gray',
+    label: 'AUX 1',
+    labelPosition: 'left',
+    leftRange: '0',
+    rightRange: '10',
+  },
+  aux2Dial: {
+    size: 'xs',
+    name: 'aux2-gain',
+    color: 'gray',
+    label: 'AUX 2',
+    labelPosition: 'right',
+    leftRange: '0',
+    rightRange: '10',
+  },
+  aux3Dial: {
+    size: 'xs',
+    name: 'aux3-gain',
+    color: 'gray',
+    label: 'AUX 3',
+    labelPosition: 'left',
+    leftRange: '0',
+    rightRange: '10',
+  },
+  aux4Dial: {
+    size: 'xs',
+    name: 'aux4-gain',
+    color: 'gray',
+    label: 'AUX 4',
+    labelPosition: 'right',
+    leftRange: '0',
+    rightRange: '10',
+  },
+}

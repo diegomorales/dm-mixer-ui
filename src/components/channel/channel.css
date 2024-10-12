@@ -5,7 +5,7 @@ d-channel {
     }
   }
 
-  d-channel-section[name='comp'] {
+  d-channel-section[name='comp-section'] {
     d-dial[name='comp-ratio'] {
       padding-left: 28px;
     }
@@ -15,7 +15,7 @@ d-channel {
     }
   }
 
-  d-channel-section[name='filters'] {
+  d-channel-section[name='filter-section'] {
     d-dial[name='filter-hpf'] {
       padding-left: 36px;
     }
@@ -33,19 +33,19 @@ d-channel {
     }
   }
 
-  d-channel-section[name='eq'] {
+  d-channel-section[name='eq-routing-section'] {
     d-radio-group {
       margin-top: 8px;
     }
   }
 
-  d-channel-section[name='hi-shelf'] {
+  d-channel-section[name='eq-hi-shelf-section'] {
     d-dial[name='hi-shelf-freq'] {
       padding-left: 36px;
     }
   }
 
-  d-channel-section[name='eq-mid'] {
+  d-channel-section[name='eq-mid-section'] {
     d-dial[name='eq-mid-freq'] {
       padding-left: 36px;
     }
@@ -55,8 +55,15 @@ d-channel {
     }
   }
 
-  d-channel-section[name='lo-shelf'] {
+  d-channel-section[name='eq-lo-shelf-section'] {
     d-dial[name='lo-shelf-freq'] {
+      padding-left: 36px;
+    }
+  }
+
+  d-channel-section[name='send-section'] {
+    d-dial[name='aux1-gain'],
+    d-dial[name='aux3-gain'] {
       padding-left: 36px;
     }
   }

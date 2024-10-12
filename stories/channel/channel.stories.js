@@ -7,6 +7,7 @@ import {
   filterSection,
   hiShelfSection,
   loShelfSection,
+  sendsSection,
   trimSection,
 } from './data.js'
 import { renderCheckbox } from '../checkbox/checkbox.js'
@@ -25,7 +26,7 @@ export const channel = {
         content: renderDial(trimSection.gain),
       },
       {
-        name: 'comp',
+        name: 'comp-section',
         collapsible: true,
         checkbox: {
           label: 'COMP',
@@ -37,7 +38,7 @@ export const channel = {
         `,
       },
       {
-        name: 'filters',
+        name: 'filter-section',
         collapsible: true,
         label: 'FILTERS',
         content: `
@@ -48,7 +49,7 @@ export const channel = {
         `,
       },
       {
-        name: 'eq',
+        name: 'eq-routing-section',
         collapsible: false,
         checkbox: {
           label: 'EQ IN',
@@ -57,7 +58,7 @@ export const channel = {
         content: renderRadioGroup(eqSection.routing),
       },
       {
-        name: 'hi-shelf',
+        name: 'eq-hi-shelf-section',
         collapsible: true,
         label: 'HI SHELF',
         content: `
@@ -66,7 +67,7 @@ export const channel = {
         `,
       },
       {
-        name: 'eq-mid',
+        name: 'eq-mid-section',
         collapsible: true,
         label: 'MID',
         content: `
@@ -76,12 +77,26 @@ export const channel = {
         `,
       },
       {
-        name: 'lo-shelf',
+        name: 'eq-lo-shelf-section',
         collapsible: true,
         label: 'LO SHELF',
         content: `
           ${renderDial(loShelfSection.freqDial)}
           ${renderDial(loShelfSection.gainDial)}
+        `,
+      },
+      {
+        name: 'send-section',
+        collapsible: true,
+        checkbox: {
+          label: 'SENDS',
+          name: 'sends',
+        },
+        content: `
+          ${renderDial(sendsSection.aux1Dial)}
+          ${renderDial(sendsSection.aux2Dial)}
+          ${renderDial(sendsSection.aux3Dial)}
+          ${renderDial(sendsSection.aux4Dial)}
         `,
       },
     ],
