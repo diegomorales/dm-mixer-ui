@@ -81,3 +81,75 @@ export const eqSection = {
     ],
   },
 }
+
+export const hiShelfSection = {
+  freqDial: {
+    name: 'hi-shelf-freq',
+    size: 'xs',
+    color: 'red',
+    label: 'kHz',
+    labelPosition: 'left',
+    leftRange: '2.0',
+    rightRange: '8.0',
+  },
+  gainDial: {
+    name: 'hi-shelf-gain',
+    size: 'xs',
+    color: 'red',
+    label: 'dB',
+    labelPosition: 'right',
+    leftRange: '-15',
+    rightRange: '+15',
+  },
+}
+
+export const eqMidSection = {
+  freqDial: {
+    name: 'eq-mid-freq',
+    size: 'xs',
+    color: 'yellow',
+    label: 'kHz',
+    labelPosition: 'left',
+    leftRange: '200',
+    rightRange: '4k',
+  },
+  gainDial: {
+    name: 'eq-mid-gain',
+    size: 'xs',
+    color: 'yellow',
+    label: 'dB',
+    labelPosition: 'right',
+    leftRange: '-15',
+    rightRange: '+15',
+  },
+  qDial: {
+    name: 'eq-mid-q',
+    size: 'xs',
+    color: 'yellow',
+    label: 'Q',
+    labelPosition: 'left',
+    leftRange: '0.1',
+    rightRange: '2.0',
+  },
+}
+
+export const loShelfSection = {
+  freqDial: {
+    name: 'lo-shelf-freq',
+    size: 'xs',
+    color: 'green',
+    label: 'Hz',
+    labelPosition: 'left',
+    leftRange: '60',
+    rightRange: '250',
+  },
+  gainDial: {
+    name: 'lo-shelf-gain',
+    size: 'xs',
+    color: 'green',
+    label: 'dB',
+    labelPosition: 'right',
+    leftRange: '-15',
+    rightRange: '+15',
+  },
+}

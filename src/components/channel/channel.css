@@ -17,11 +17,7 @@ d-channel {
 
   d-channel-section[name='filters'] {
     d-dial[name='filter-hpf'] {
-      padding-left: 34px;
-    }
-
-    d-dial[name='filter-lpf'] {
-      padding-left: 6px;
+      padding-left: 36px;
     }
 
     d-checkbox[name='hpf-on'] {
@@ -40,6 +36,28 @@ d-channel {
   d-channel-section[name='eq'] {
     d-radio-group {
       margin-top: 8px;
+    }
+  }
+
+  d-channel-section[name='hi-shelf'] {
+    d-dial[name='hi-shelf-freq'] {
+      padding-left: 36px;
+    }
+  }
+
+  d-channel-section[name='eq-mid'] {
+    d-dial[name='eq-mid-freq'] {
+      padding-left: 36px;
+    }
+
+    d-dial[name='eq-mid-q'] {
+      padding-left: 36px;
+    }
+  }
+
+  d-channel-section[name='lo-shelf'] {
+    d-dial[name='lo-shelf-freq'] {
+      padding-left: 36px;
     }
   }
 }

@@ -1,6 +1,14 @@
 import { renderDial } from '../dial/dial.js'
 import { renderChannel } from './channel.js'
-import { compSection, eqSection, filterSection, trimSection } from './data.js'
+import {
+  compSection,
+  eqMidSection,
+  eqSection,
+  filterSection,
+  hiShelfSection,
+  loShelfSection,
+  trimSection,
+} from './data.js'
 import { renderCheckbox } from '../checkbox/checkbox.js'
 import { renderRadioGroup } from '../radio-group/render-radio-group.js'
 
@@ -47,6 +55,34 @@ export const channel = {
           name: 'eq-on',
         },
         content: renderRadioGroup(eqSection.routing),
+      },
+      {
+        name: 'hi-shelf',
+        collapsible: true,
+        label: 'HI SHELF',
+        content: `
+          ${renderDial(hiShelfSection.freqDial)}
+          ${renderDial(hiShelfSection.gainDial)}
+        `,
+      },
+      {
+        name: 'eq-mid',
+        collapsible: true,
+        label: 'MID',
+        content: `
+          ${renderDial(eqMidSection.freqDial)}
+          ${renderDial(eqMidSection.gainDial)}
+          ${renderDial(eqMidSection.qDial)}
+        `,
+      },
+      {
+        name: 'lo-shelf',
+        collapsible: true,
+        label: 'LO SHELF',
+        content: `
+          ${renderDial(loShelfSection.freqDial)}
+          ${renderDial(loShelfSection.gainDial)}
+        `,
       },
     ],
   },
