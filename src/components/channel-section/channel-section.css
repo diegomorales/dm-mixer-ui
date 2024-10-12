@@ -1,5 +1,6 @@
 @import url('../../css/helpers/accessibility.css');
 @import url('../../css/base/resets.css');
+@import url('../../css/base/focus.css');
 
 :host {
   position: relative;

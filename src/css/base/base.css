@@ -13,8 +13,3 @@ body {
   font-family: var(--font-sans-serif), sans-serif;
   color: var(--mono-10);
 }
-
-*:focus-visible {
-  outline: 2px solid var(--mono-70);
-  outline-offset: 2px;
-}

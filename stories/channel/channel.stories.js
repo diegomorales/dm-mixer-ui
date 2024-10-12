@@ -33,9 +33,9 @@ export const channel = {
         collapsible: true,
         label: 'FILTERS',
         content: `
+          ${renderCheckbox(filterSection.hpfCheckbox)}
           ${renderDial(filterSection.hpfDial)}
           ${renderDial(filterSection.lpfDial)}
-          ${renderCheckbox(filterSection.hpfCheckbox)}
           ${renderCheckbox(filterSection.lpfCheckbox)}
         `,
       },
