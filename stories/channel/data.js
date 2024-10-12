@@ -8,7 +8,6 @@ export const trimSection = {
     leftRange: '0',
     rightRange: '+20',
     value: 0,
-    default: 0.5,
   },
 }
 
@@ -100,6 +99,7 @@ export const hiShelfSection = {
     labelPosition: 'right',
     leftRange: '-15',
     rightRange: '+15',
+    default: 0.5,
   },
 }
 
@@ -121,6 +121,7 @@ export const eqMidSection = {
     labelPosition: 'right',
     leftRange: '-15',
     rightRange: '+15',
+    default: 0.5,
   },
   qDial: {
     name: 'eq-mid-q',
@@ -151,6 +152,7 @@ export const loShelfSection = {
     labelPosition: 'right',
     leftRange: '-15',
     rightRange: '+15',
+    default: 0.5,
   },
 }
 
@@ -190,5 +192,18 @@ export const sendsSection = {
     labelPosition: 'right',
     leftRange: '0',
     rightRange: '10',
+  },
+}
+
+export const panSection = {
+  panDial: {
+    name: 'pan',
+    size: 's',
+    color: 'blue',
+    label: 'PAN',
+    labelPosition: 'left',
+    leftRange: 'L',
+    rightRange: 'R',
+    default: 0.5,
   },
 }

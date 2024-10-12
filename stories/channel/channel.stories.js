@@ -7,6 +7,7 @@ import {
   filterSection,
   hiShelfSection,
   loShelfSection,
+  panSection,
   sendsSection,
   trimSection,
 } from './data.js'
@@ -97,6 +98,13 @@ export const channel = {
           ${renderDial(sendsSection.aux2Dial)}
           ${renderDial(sendsSection.aux3Dial)}
           ${renderDial(sendsSection.aux4Dial)}
+        `,
+      },
+      {
+        name: 'pan-section',
+        collapsible: false,
+        content: `
+          ${renderDial(panSection.panDial)}
         `,
       },
     ],

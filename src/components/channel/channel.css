@@ -67,4 +67,10 @@ d-channel {
       padding-left: 36px;
     }
   }
+
+  d-channel-section[name='pan-section'] {
+    d-dial[name='pan'] {
+      padding-left: 30px;
+    }
+  }
 }
