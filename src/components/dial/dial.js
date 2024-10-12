@@ -58,6 +58,7 @@ export default class Dial extends Base {
     ]
   }
 
+  #input
   #handle
   #tooltip
   #leftRangeValue
@@ -76,20 +77,20 @@ export default class Dial extends Base {
   }
 
   get value() {
-    return Number(this._input.value)
+    return Number(this.#input.value)
   }
 
   set value(v) {
-    this._input.value = v
+    this.#input.value = v
     this.setHandleRotation(scaleCurrentValue(v))
   }
 
   get name() {
-    return this._input.name
+    return this.#input.name
   }
 
   set name(name) {
-    this._input.name = name
+    this.#input.name = name
   }
 
   /**
@@ -105,7 +106,7 @@ export default class Dial extends Base {
       this.getAttribute('value') || this.getAttribute('default') || '0' // default value
     ctrl.name = this.getAttribute('name') || ''
 
-    this._input = this.appendChild(ctrl)
+    this.#input = this.appendChild(ctrl)
   }
 
   get transformTooltipValue() {
@@ -162,10 +163,10 @@ export default class Dial extends Base {
     this.setHandleRotation(this._currentRotation)
 
     // Update internal 'value' value.
-    this._input.value = scaleRotation(this._currentRotation)
+    this.#input.value = scaleRotation(this._currentRotation)
 
     this.dispatch('move', {
-      value: this._input.value,
+      value: this.#input.value,
     })
 
     this.setTooltipValue()
@@ -236,27 +237,26 @@ export default class Dial extends Base {
     this.setHandleRotation(this._currentRotation)
 
     // Update internal 'value' value.
-    this._input.value = scaleRotation(this._currentRotation)
+    this.#input.value = scaleRotation(this._currentRotation)
 
     this.dispatch('move', {
-      value: this._input.value,
+      value: this.#input.value,
     })
   }
 
   bindEvents() {
     this.#handle.addEventListener('pointerdown', this.#onPointerdown)
     this.#handle.addEventListener('dblclick', this.#onDblClick)
-    this._input.addEventListener('keydown', this.#onInputKeyDown)
+    this.#input.addEventListener('keydown', this.#onInputKeyDown)
   }
 
   update(name, newV) {
     if (name === 'name') {
-      this._input.name = newV
+      this.#input.name = newV
     }
 
     if (name === 'value') {
-      this._input.value = newV
-      this.setHandleRotation(scaleCurrentValue(Number(this._input.value)))
+      this.value = Number(this.#input.value)
     }
 
     if (name === 'size') {
@@ -296,7 +296,7 @@ export default class Dial extends Base {
     this.#appendInputControl()
 
     // Initial value
-    this.setHandleRotation(scaleCurrentValue(Number(this._input.value)))
+    this.setHandleRotation(scaleCurrentValue(Number(this.#input.value)))
 
     this.bindEvents()
   }
