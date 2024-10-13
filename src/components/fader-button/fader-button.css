@@ -1,0 +1,54 @@
+:host {
+  display: contents;
+}
+
+.fader-button {
+  width: 16px;
+  height: 42px;
+  box-shadow: 0 0 1px 0 rgb(15 15 15 / 75%);
+  background-image: linear-gradient(
+    180deg,
+    rgb(21 21 21 / 30%),
+    rgb(21 21 21 / 0%),
+    rgb(21 21 21 / 30%)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  > div:not(.fader-button__color) {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #ececec;
+      box-shadow: 0 0 1px 0 rgb(0 0 0 / 25%);
+    }
+  }
+
+  .fader-button__color {
+    height: 6px;
+  }
+
+  &[color='black'] {
+    .fader-button__color {
+      background-color: var(--mono-00);
+    }
+  }
+
+  &[color='blue'] {
+    .fader-button__color {
+      background-color: var(--matt-blue-50);
+    }
+  }
+
+  &[color='red'] {
+    .fader-button__color {
+      background-color: var(--matt-red-50);
+    }
+  }
+}
