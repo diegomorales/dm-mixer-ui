@@ -1,0 +1,22 @@
+:host {
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+.control {
+  height: 170px;
+
+  ::slotted(input) {
+    height: 100%;
+    writing-mode: vertical-lr;
+  }
+
+  ::slotted(datalist) {
+    display: block;
+  }
+}
